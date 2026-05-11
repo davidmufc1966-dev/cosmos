@@ -1029,8 +1029,8 @@ const planets = [
 
 /* ─── Planet & Moon Images ─── */
 // Textures from Solar System Scope (CC-BY-4.0), based on NASA imagery.
-// Self-hosted in ./textures/ for reliable loading.
-const IMG_BASE = './textures/';
+// Self-hosted in ./ for reliable loading.
+const IMG_BASE = './';
 const planetImages = {
   Mercury: IMG_BASE + 'mercury.jpg',
   Venus:   IMG_BASE + 'venus.jpg',
@@ -1177,7 +1177,7 @@ function selectPlanet(i) {
   const imgUrl = planetImages[p.name];
   let heroHTML;
   if (p.name === 'Saturn') {
-    heroHTML = `<img class="planet-hero-img" src="./textures/saturn.png" alt="Saturn">`;
+    heroHTML = `<img class="planet-hero-img" src="./saturn.png" alt="Saturn">`;
   } else {
     const heroStyle = imgUrl
       ? `background: url('${imgUrl}') center / cover no-repeat, ${p.color};`
@@ -1244,60 +1244,60 @@ function selectPlanet(i) {
 selectPlanet(2); // Start on Earth
 
 /* ─── Exoplanet Data ─── */
-// Self-hosted planet portraits in ./textures/exo/, derived from Solar System Scope
+// Self-hosted planet portraits in ./, derived from Solar System Scope
 // NASA-based textures, colour-shifted per planet's known/inferred properties.
 const exoplanets = [
   { name: 'Proxima Centauri b', nick: 'our nearest neighbour',
     color: 'radial-gradient(circle at 30% 30%, #d48560, #6a2a1a)',
-    image: './textures/exo/proxima_b.jpg',
+    image: './proxima_b.jpg',
     dist: '4.24 ly', orbit: '11.2 d', mass: '1.07 M⊕', radius: '1.07 R⊕',
     radiusEarth: 1.07,
     story: 'Orbiting the closest star to our Sun, Proxima Centauri b sits inside its red dwarf\'s habitable zone — but bathed in stellar flares that may strip away any atmosphere. The most reachable alien world, if any of them are reachable at all.' },
   { name: 'TRAPPIST-1e', nick: 'a sister of seven',
     color: 'radial-gradient(circle at 30% 30%, #7fb8e8, #2a4a6a)',
-    image: './textures/exo/trappist1e.jpg',
+    image: './trappist1e.jpg',
     dist: '40 ly', orbit: '6.1 d', mass: '0.69 M⊕', radius: '0.92 R⊕',
     radiusEarth: 0.92,
     story: 'One of seven rocky, Earth-sized planets crammed around a cool dwarf star. From its surface, the other six would loom in the sky like moons. The fourth out, it is the most temperate candidate in the system.' },
   { name: 'Kepler-452b', nick: 'Earth\'s elder cousin',
     color: 'radial-gradient(circle at 30% 30%, #8ac8e0, #3a6a8a)',
-    image: './textures/exo/kepler452b.jpg',
+    image: './kepler452b.jpg',
     dist: '1,402 ly', orbit: '385 d', mass: '~5 M⊕', radius: '1.5 R⊕',
     radiusEarth: 1.5,
     story: 'A super-Earth in a 385-day orbit around a sun-like star — six billion years old, more than a billion years older than our own world. If life ever began there, it had a head start.' },
   { name: 'HD 189733 b', nick: 'the cobalt rain world',
     color: 'radial-gradient(circle at 30% 30%, #6a8ce0, #1a3a8a)',
-    image: './textures/exo/hd189733b.jpg',
+    image: './hd189733b.jpg',
     dist: '64.5 ly', orbit: '2.2 d', mass: '1.13 MJ', radius: '1.14 RJ',
     radiusEarth: 12.5,
     story: 'A deep azure hot Jupiter where temperatures top 1,000 °C. Its colour comes not from oceans but from silicate clouds — which means it likely rains molten glass, sideways, at 8,700 km/h.' },
   { name: '51 Pegasi b', nick: 'the first ever found',
     color: 'radial-gradient(circle at 30% 30%, #f0c890, #a06030)',
-    image: './textures/exo/51pegb.jpg',
+    image: './51pegb.jpg',
     dist: '50 ly', orbit: '4.2 d', mass: '0.46 MJ', radius: '~1.27 RJ',
     radiusEarth: 14,
     story: 'In 1995, this hot Jupiter became the first confirmed exoplanet around a sun-like star. The discovery shattered assumptions about where giant planets could form, and won its discoverers the 2019 Nobel Prize in Physics.' },
   { name: 'K2-18 b', nick: 'the Hycean candidate',
     color: 'radial-gradient(circle at 30% 30%, #a0d8c8, #2a6a5a)',
-    image: './textures/exo/k218b.jpg',
+    image: './k218b.jpg',
     dist: '124 ly', orbit: '33 d', mass: '8.6 M⊕', radius: '2.6 R⊕',
     radiusEarth: 2.6,
     story: 'A mini-Neptune in its star\'s habitable zone, with water vapour and methane in its atmosphere. JWST observations in 2023 hinted at dimethyl sulphide — a molecule made on Earth only by living things. The case is far from closed.' },
   { name: 'WASP-12 b', nick: 'the dying world',
     color: 'radial-gradient(circle at 30% 30%, #e87560, #4a1a0a)',
-    image: './textures/exo/wasp12b.jpg',
+    image: './wasp12b.jpg',
     dist: '870 ly', orbit: '1.1 d', mass: '1.4 MJ', radius: '1.9 RJ',
     radiusEarth: 21,
     story: 'So close to its star that its dayside reaches 2,500 °C, this hot Jupiter is being slowly eaten alive — losing 6 billion tonnes of matter every second. Tidal forces have stretched it into an egg.' },
   { name: 'TOI-700 d', nick: 'TESS\'s first promise',
     color: 'radial-gradient(circle at 30% 30%, #7fb890, #2a5a3a)',
-    image: './textures/exo/toi700d.jpg',
+    image: './toi700d.jpg',
     dist: '101 ly', orbit: '37 d', mass: '~1.7 M⊕', radius: '1.07 R⊕',
     radiusEarth: 1.07,
     story: 'The first Earth-sized world in the habitable zone discovered by NASA\'s TESS telescope. Tidally locked to its quiet red dwarf, it may have a permanent day side and a permanent night side, with eternal twilight between them.' },
   { name: 'GJ 1214 b', nick: 'the steam world',
     color: 'radial-gradient(circle at 30% 30%, #c8b8e0, #5a4a8a)',
-    image: './textures/exo/gj1214b.jpg',
+    image: './gj1214b.jpg',
     dist: '47.5 ly', orbit: '1.6 d', mass: '8.2 M⊕', radius: '2.7 R⊕',
     radiusEarth: 2.7,
     story: 'A waterworld unlike any in our solar system. Its dense atmosphere may sit above an ocean hundreds of kilometres deep — or it may be water all the way down. A single planet-sized droplet around a small red star.' }
@@ -1368,34 +1368,34 @@ function selectExo(i) {
 const TYPE_LABELS = ['Sub-Earth','Rocky','Super-Earth','Mini-Neptune','Neptune-like','Saturn-like','Hot Jupiter','Ultra-hot Jupiter','Cold gas giant'];
 // Fallback single-texture per type (current featured 9 set). Used if no AI variants manifest is present.
 const TYPE_TEXTURES_FALLBACK = [
-  './textures/exo/toi700d.jpg',    // 0 sub-earth (grey)
-  './textures/exo/trappist1e.jpg', // 1 rocky (teal)
-  './textures/exo/proxima_b.jpg',  // 2 super-earth (red)
-  './textures/exo/k218b.jpg',      // 3 mini-neptune (teal)
-  './textures/exo/hd189733b.jpg',  // 4 neptune (deep blue)
-  './textures/exo/kepler452b.jpg', // 5 saturn (cream)
-  './textures/exo/51pegb.jpg',     // 6 hot jupiter (gold)
-  './textures/exo/wasp12b.jpg',    // 7 ultra-hot (red)
-  './textures/exo/gj1214b.jpg',    // 8 cold gas (purple)
+  './toi700d.jpg',    // 0 sub-earth (grey)
+  './trappist1e.jpg', // 1 rocky (teal)
+  './proxima_b.jpg',  // 2 super-earth (red)
+  './k218b.jpg',      // 3 mini-neptune (teal)
+  './hd189733b.jpg',  // 4 neptune (deep blue)
+  './kepler452b.jpg', // 5 saturn (cream)
+  './51pegb.jpg',     // 6 hot jupiter (gold)
+  './wasp12b.jpg',    // 7 ultra-hot (red)
+  './gj1214b.jpg',    // 8 cold gas (purple)
 ];
 // Map manifest type-name → numeric index used in data
 const TYPE_NAME_TO_IDX = {
   'sub-earth': 0, 'rocky': 1, 'super-earth': 2, 'mini-neptune': 3,
   'neptune': 4, 'saturn': 5, 'hot-jupiter': 6, 'ultra-hot': 7, 'cold-gas': 8,
 };
-// Populated at runtime if ./textures/exo/auto/manifest.json exists
+// Populated at runtime if ./auto/manifest.json exists
 let TYPE_TEXTURE_SETS = TYPE_TEXTURES_FALLBACK.map(t => [t]);
 function texturesFor(typeIdx) { return TYPE_TEXTURE_SETS[typeIdx]; }
 async function loadTextureManifest() {
   try {
-    const r = await fetch('./textures/exo/auto/manifest.json');
+    const r = await fetch('./auto/manifest.json');
     if (!r.ok) return;
     const m = await r.json();
     const sets = TYPE_TEXTURES_FALLBACK.map(t => [t]);
     for (const [name, files] of Object.entries(m)) {
       const idx = TYPE_NAME_TO_IDX[name];
       if (idx == null || !files.length) continue;
-      sets[idx] = files.map(f => './textures/exo/auto/' + f);
+      sets[idx] = files.map(f => './auto/' + f);
     }
     TYPE_TEXTURE_SETS = sets;
   } catch (e) { /* fallback set already in place */ }

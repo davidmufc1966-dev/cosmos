@@ -23,7 +23,7 @@ except ImportError:
     print("Install deps:  pip install replicate pillow")
     sys.exit(1)
 
-OUT_DIR = Path('./textures/exo/auto')
+OUT_DIR = Path('./auto')
 OUT_DIR.mkdir(parents=True, exist_ok=True)
 MANIFEST = OUT_DIR / 'manifest.json'
 
