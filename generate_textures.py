@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Generate AI exoplanet textures via Replicate's FLUX-schnell model.
+Generate AI exoplanet textures via Replicate's FLUX 2 Pro model.
 
 Setup:
     pip install replicate pillow
@@ -10,7 +10,7 @@ Run:
     python3 generate_textures.py            # generate any missing
     python3 generate_textures.py --force    # regenerate everything
 
-Cost estimate: ~$0.003 per image × 40 = ~$0.12
+Cost estimate: ~$0.04 per image × 40 = ~$1.60
 """
 
 import os, sys, json, io, time
@@ -90,22 +90,22 @@ PROMPTS = {
 }
 
 def generate(prompt, out_path):
-    """Generate one image via FLUX-schnell, resize to 512x512, save as JPG."""
+    """Generate one image via FLUX 2 Pro, resize to 512x512, save as JPG."""
     print(f"  → {out_path.name}", flush=True)
     output = replicate.run(
-        "black-forest-labs/flux-schnell",
+        "black-forest-labs/flux-2-pro",
         input={
             "prompt": prompt,
             "aspect_ratio": "1:1",
+            "resolution": "1 MP",
             "output_format": "jpg",
-            "output_quality": 85,
-            "num_outputs": 1,
-            "go_fast": True,
-            "megapixels": "1",
+            "input_images": [],
         },
     )
-    # output is a list of file-like objects
-    img_bytes = output[0].read() if hasattr(output[0], 'read') else output[0]
+    # output may be a single file-like object or a list
+    if isinstance(output, list):
+        output = output[0]
+    img_bytes = output.read() if hasattr(output, 'read') else output
     if isinstance(img_bytes, str):  # if it's a URL
         import urllib.request
         with urllib.request.urlopen(img_bytes) as r:
@@ -121,7 +121,7 @@ def main():
         sys.exit(1)
 
     total = sum(len(v) for v in PROMPTS.values())
-    print(f"Plan: {total} images, ~${total * 0.003:.2f} on FLUX-schnell")
+    print(f"Plan: {total} images, ~${total * 0.04:.2f} on FLUX 2 Pro")
     print(f"Output: {OUT_DIR}/")
     input("Press Enter to continue, Ctrl-C to cancel… ")
 
