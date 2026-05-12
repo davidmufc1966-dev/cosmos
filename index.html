@@ -797,14 +797,21 @@ footer .source {
     0 8px 32px rgba(0, 0, 0, 0.5);
 }
 
-/* Free-form planet hero (Saturn with rings — extends beyond planet body) */
+/* Photo hero — square planets render at a smaller width because the
+   sphere fills the canvas; Saturn's wider canvas needs more room so
+   the rings have space to extend past the body. */
 .planet-hero-img {
   display: block;
   margin: 0 auto 1.5rem;
   max-width: 90%;
-  width: clamp(200px, 56vw, 280px);
   height: auto;
   filter: drop-shadow(0 8px 32px rgba(0, 0, 0, 0.6));
+}
+.planet-hero-img--square {
+  width: clamp(140px, 38vw, 190px);
+}
+.planet-hero-img--wide {
+  width: clamp(220px, 60vw, 320px);
 }
 
 .sphere-shade {
@@ -1347,18 +1354,12 @@ function selectPlanet(i) {
     el.classList.toggle('active', idx === i);
   });
 
-  // Planet hero visual — Saturn uses a pre-rendered image (with rings),
-  // others use a circular div with the equirectangular texture
-  const imgUrl = planetImages[p.name];
-  let heroHTML;
-  if (p.name === 'Saturn') {
-    heroHTML = `<img class="planet-hero-img" src="./saturn.png" alt="Saturn">`;
-  } else {
-    const heroStyle = imgUrl
-      ? `background: url('${imgUrl}') center / cover no-repeat, ${p.color};`
-      : `background: ${p.color};`;
-    heroHTML = `<div class="planet-hero" style="${heroStyle}"></div>`;
-  }
+  // Planet hero — all eight use pre-rendered photorealistic spheres
+  // from /planets/. Saturn's image is wider (it has rings), so it
+  // gets the --wide modifier; the others are square sphere portraits.
+  const slug = p.name.toLowerCase();
+  const heroMod = p.name === 'Saturn' ? 'planet-hero-img--wide' : 'planet-hero-img--square';
+  const heroHTML = `<img class="planet-hero-img ${heroMod}" src="./planets/${slug}.png" alt="${p.name}">`;
 
   let moonsHTML;
   if (md.count === 0) {
