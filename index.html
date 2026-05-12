@@ -669,7 +669,76 @@ body {
   min-height: 200px;
 }
 
-.compare-planet { text-align: center; }
+.compare-planet { text-align: center; position: relative; }
+
+.compare-planet .ball-wrap {
+  position: relative;
+  display: inline-block;
+}
+
+.planet-zoom-btn {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 30px;
+  height: 30px;
+  background: rgba(0,0,0,0.6);
+  border: 1px solid rgba(232, 117, 96, 0.5);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: var(--ink);
+  font-size: 14px;
+  z-index: 2;
+  transition: all 0.2s ease;
+}
+.planet-zoom-btn:hover {
+  background: rgba(232, 117, 96, 0.3);
+  border-color: var(--coral);
+  transform: scale(1.1);
+}
+
+.planet-fullscreen {
+  position: fixed;
+  inset: 0;
+  background: rgba(5, 7, 15, 0.97);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  cursor: pointer;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding: 2rem;
+}
+.planet-fullscreen.active {
+  display: flex;
+  animation: fadeUp 0.4s ease;
+}
+
+.planet-fullscreen .pf-ball {
+  width: 80vmin;
+  height: 80vmin;
+  max-width: 600px;
+  max-height: 600px;
+  border-radius: 50%;
+}
+
+.planet-fullscreen .pf-name {
+  font-family: 'Instrument Serif', serif;
+  font-size: clamp(1.5rem, 6vw, 2.5rem);
+  color: var(--ink);
+}
+
+.planet-fullscreen .pf-close-hint {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.65rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--ink-dim);
+}
 
 .compare-planet .ball {
   border-radius: 50%;
@@ -933,6 +1002,12 @@ footer .source {
     <button class="cat-load-more" id="catLoadMore" style="display:none">Load more</button>
     <div class="exo-detail" id="catDetail"></div>
   </section>
+
+  <div class="planet-fullscreen" id="planetFullscreen">
+    <div class="pf-ball" id="pfBall"></div>
+    <div class="pf-name" id="pfName"></div>
+    <div class="pf-close-hint">tap to close</div>
+  </div>
 
   <footer>
     <p class="quote">"Somewhere, something incredible is waiting to be known."</p>
@@ -1332,8 +1407,8 @@ function selectExo(i) {
   const detail = document.getElementById('exoDetail');
   detail.classList.add('active');
 
-  const earthSize = 56;
-  const exoSize = Math.max(20, Math.min(180, earthSize * e.radiusEarth));
+  const earthSize = 80;
+  const exoSize = Math.max(28, Math.min(280, earthSize * e.radiusEarth));
 
   detail.innerHTML = `
     <h3>${e.name}</h3>
@@ -1353,7 +1428,10 @@ function selectExo(i) {
           <div class="name">Earth</div>
         </div>
         <div class="compare-planet">
-          <div class="ball sphere-shade" style="width:${exoSize}px;height:${exoSize}px;${e.image ? `background:url('${e.image}') center / cover no-repeat, ${e.color}` : `background:${e.color}`}"></div>
+          <div class="ball-wrap">
+            <div class="ball sphere-shade" id="exoBall_${i}" style="width:${exoSize}px;height:${exoSize}px;${e.image ? `background:url('${e.image}') center / cover no-repeat, ${e.color}` : `background:${e.color}`}"></div>
+            <div class="planet-zoom-btn" onclick="openFullscreen(this.previousElementSibling, '${e.name.replace(/'/g, "\\'")}')">⛶</div>
+          </div>
           <div class="name">${e.name.split(' ')[0]}</div>
         </div>
       </div>
@@ -1390,7 +1468,10 @@ async function loadTextureManifest() {
   try {
     const r = await fetch('./manifest.json');
     if (!r.ok) return;
-    const m = await r.json();
+    const text = await r.text();
+    const trimmed = text.trim();
+    if (!trimmed || trimmed[0] !== '{') return; // HTML or empty — not the manifest
+    const m = JSON.parse(trimmed);
     const sets = TYPE_TEXTURES_FALLBACK.map(t => [t]);
     for (const [name, files] of Object.entries(m)) {
       const idx = TYPE_NAME_TO_IDX[name];
@@ -1559,8 +1640,8 @@ function selectCatPlanet(idx) {
   detail.classList.add('active');
   const fall = TYPE_FALLBACKS[p.t];
   const compareStyle = planetVisualStyle(p.n, p.t, fall);
-  const earthSize = 56;
-  const exoSize = Math.max(20, Math.min(180, earthSize * (p.r || 1)));
+  const earthSize = 80;
+  const exoSize = Math.max(28, Math.min(280, earthSize * (p.r || 1)));
 
   const fmt = (v, unit) => v != null ? `${v} ${unit}` : '—';
   const periodTxt = p.p != null
@@ -1590,7 +1671,10 @@ function selectCatPlanet(idx) {
           <div class="name">Earth</div>
         </div>
         <div class="compare-planet">
-          <div class="ball sphere-shade" style="width:${exoSize}px;height:${exoSize}px;${compareStyle}"></div>
+          <div class="ball-wrap">
+            <div class="ball sphere-shade" id="catExoBall" style="width:${exoSize}px;height:${exoSize}px;${compareStyle}"></div>
+            <div class="planet-zoom-btn" onclick="openFullscreen(this.previousElementSibling, '${p.n.replace(/'/g, "\\'")}')">⛶</div>
+          </div>
           <div class="name">${p.n.split(' ')[0]}</div>
         </div>
       </div>
@@ -1624,6 +1708,21 @@ document.getElementById('catSort').addEventListener('change', (e) => {
 document.getElementById('catLoadMore').addEventListener('click', () => {
   catState.page++;
   renderCatPage();
+});
+
+/* ─── Fullscreen planet view ─── */
+function openFullscreen(ball, name) {
+  const fs = document.getElementById('planetFullscreen');
+  const pfBall = document.getElementById('pfBall');
+  pfBall.style.cssText = ball.getAttribute('style');
+  // Override size to fullscreen dimensions
+  pfBall.style.width = '';
+  pfBall.style.height = '';
+  document.getElementById('pfName').textContent = name;
+  fs.classList.add('active');
+}
+document.getElementById('planetFullscreen').addEventListener('click', function() {
+  this.classList.remove('active');
 });
 </script>
 </body>
