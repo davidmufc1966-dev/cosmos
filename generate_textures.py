@@ -4,7 +4,7 @@ Generate AI exoplanet textures via Replicate's FLUX 2 Pro model.
 
 Setup:
     pip install replicate pillow
-    export r8_agw2dBbYToHaPk5HGdIB9RwqfnGFQCR1Mq9f0
+    export REPLICATE_API_TOKEN=r8_xxxxx
 
 Run:
     python3 generate_textures.py            # generate any missing
