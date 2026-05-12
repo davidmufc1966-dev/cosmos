@@ -1921,7 +1921,7 @@ exoplanets.forEach((e, i) => {
   const card = document.createElement('div');
   card.className = 'exo-card';
   const visualStyle = e.image
-    ? `background: url('${e.image}') center / cover no-repeat, ${e.color}; box-shadow: inset -6px -6px 12px rgba(0,0,0,0.3);`
+    ? `background: url('${e.image}') center / 135% no-repeat, ${e.color}; box-shadow: inset -6px -6px 12px rgba(0,0,0,0.3);`
     : `background: ${e.color}; box-shadow: inset -6px -6px 12px rgba(0,0,0,0.3);`;
   card.innerHTML = `
     <div class="index">${String(i + 1).padStart(2, '0')} / ${String(exoplanets.length).padStart(2, '0')}</div>
@@ -1981,10 +1981,10 @@ function selectExo(i) {
         </div>
         <div class="compare-planet">
           <div class="ball-wrap">
-            <div class="ball sphere-shade" id="exoBall_${i}" style="width:${exoSize}px;height:${exoSize}px;${e.image ? `background:url('${e.image}') center / cover no-repeat, ${e.color}` : `background:${e.color}`}"></div>
+            <div class="ball sphere-shade" id="exoBall_${i}" style="width:${exoSize}px;height:${exoSize}px;${e.image ? `background:url('${e.image}') center / 135% no-repeat, ${e.color}` : `background:${e.color}`}"></div>
             <div class="planet-zoom-btn" onclick="openFullscreen(this.previousElementSibling, '${e.name.replace(/'/g, "\\'")}')">⛶</div>
           </div>
-          <div class="name">${e.name.split(' ')[0]}</div>
+          <div class="name">${e.name}</div>
           ${sizeClamped ? `<div class="size-note">scaled · actual ${ratio.toFixed(1)}× Earth</div>` : ''}
         </div>
       </div>
@@ -2336,7 +2336,7 @@ function selectCatPlanet(idx) {
             <div class="ball sphere-shade" id="catExoBall" style="width:${exoSize}px;height:${exoSize}px;${compareStyle}"></div>
             <div class="planet-zoom-btn" onclick="openFullscreen(this.previousElementSibling, '${p.n.replace(/'/g, "\\'")}')">⛶</div>
           </div>
-          <div class="name">${p.n.split(' ')[0]}</div>
+          <div class="name">${p.n}</div>
           ${sizeClamped ? `<div class="size-note">scaled · actual ${ratio.toFixed(1)}× Earth</div>` : ''}
         </div>
       </div>
