@@ -1,0 +1,59 @@
+{
+  "sub-earth": [
+    "sub-earth-1.jpg",
+    "sub-earth-2.jpg",
+    "sub-earth-3.jpg",
+    "sub-earth-4.jpg"
+  ],
+  "rocky": [
+    "rocky-1.jpg",
+    "rocky-2.jpg",
+    "rocky-3.jpg",
+    "rocky-4.jpg",
+    "rocky-5.jpg"
+  ],
+  "super-earth": [
+    "super-earth-1.jpg",
+    "super-earth-2.jpg",
+    "super-earth-3.jpg",
+    "super-earth-4.jpg",
+    "super-earth-5.jpg"
+  ],
+  "mini-neptune": [
+    "mini-neptune-1.jpg",
+    "mini-neptune-2.jpg",
+    "mini-neptune-3.jpg",
+    "mini-neptune-4.jpg"
+  ],
+  "neptune": [
+    "neptune-1.jpg",
+    "neptune-2.jpg",
+    "neptune-3.jpg",
+    "neptune-4.jpg"
+  ],
+  "saturn": [
+    "saturn-1.jpg",
+    "saturn-2.jpg",
+    "saturn-3.jpg",
+    "saturn-4.jpg"
+  ],
+  "hot-jupiter": [
+    "hot-jupiter-1.jpg",
+    "hot-jupiter-2.jpg",
+    "hot-jupiter-3.jpg",
+    "hot-jupiter-4.jpg",
+    "hot-jupiter-5.jpg"
+  ],
+  "ultra-hot": [
+    "ultra-hot-1.jpg",
+    "ultra-hot-2.jpg",
+    "ultra-hot-3.jpg",
+    "ultra-hot-4.jpg"
+  ],
+  "cold-gas": [
+    "cold-gas-1.jpg",
+    "cold-gas-2.jpg",
+    "cold-gas-3.jpg",
+    "cold-gas-4.jpg"
+  ]
+}

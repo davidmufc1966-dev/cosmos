@@ -1383,19 +1383,19 @@ const TYPE_NAME_TO_IDX = {
   'sub-earth': 0, 'rocky': 1, 'super-earth': 2, 'mini-neptune': 3,
   'neptune': 4, 'saturn': 5, 'hot-jupiter': 6, 'ultra-hot': 7, 'cold-gas': 8,
 };
-// Populated at runtime if ./auto/manifest.json exists
+// Populated at runtime if ./manifest.json exists
 let TYPE_TEXTURE_SETS = TYPE_TEXTURES_FALLBACK.map(t => [t]);
 function texturesFor(typeIdx) { return TYPE_TEXTURE_SETS[typeIdx]; }
 async function loadTextureManifest() {
   try {
-    const r = await fetch('./auto/manifest.json');
+    const r = await fetch('./manifest.json');
     if (!r.ok) return;
     const m = await r.json();
     const sets = TYPE_TEXTURES_FALLBACK.map(t => [t]);
     for (const [name, files] of Object.entries(m)) {
       const idx = TYPE_NAME_TO_IDX[name];
       if (idx == null || !files.length) continue;
-      sets[idx] = files.map(f => './auto/' + f);
+      sets[idx] = files.map(f => './' + f);
     }
     TYPE_TEXTURE_SETS = sets;
   } catch (e) { /* fallback set already in place */ }
