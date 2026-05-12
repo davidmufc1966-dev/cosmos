@@ -922,6 +922,97 @@ footer .source {
   .compare-vis { gap: 1rem; }
   .detail-card, .exo-detail { padding: 1.75rem 1.25rem; }
 }
+
+/* ─── Live 3D view callout (links to solar-system.html) ─── */
+.live-view {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 1.15rem 1.4rem 1.2rem;
+  margin: 1.75rem 0 2.25rem;
+  background: linear-gradient(135deg, rgba(212, 165, 116, 0.05), rgba(232, 117, 96, 0.04));
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  text-decoration: none;
+  color: inherit;
+  position: relative;
+  overflow: hidden;
+  transition: border-color 0.3s ease, background 0.3s ease, transform 0.3s ease;
+  cursor: pointer;
+}
+.live-view::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 2px; height: 100%;
+  background: linear-gradient(to bottom, transparent, var(--gold) 30%, var(--gold) 70%, transparent);
+  opacity: 0.85;
+}
+.live-view::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at right, rgba(212, 165, 116, 0.08), transparent 60%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+.live-view:hover {
+  border-color: rgba(212, 165, 116, 0.45);
+  transform: translateX(2px);
+}
+.live-view:hover::after { opacity: 1; }
+.live-view-body { flex: 1; min-width: 0; }
+.live-view-eyebrow {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 5px;
+}
+.live-view-title {
+  font-family: 'Instrument Serif', serif;
+  font-size: 26px;
+  color: var(--ink);
+  line-height: 1.1;
+  font-weight: 400;
+  letter-spacing: -0.005em;
+}
+.live-view-title em {
+  color: var(--gold);
+  font-style: italic;
+}
+.live-view-meta {
+  font-size: 12.5px;
+  color: var(--ink-mute);
+  margin-top: 7px;
+  letter-spacing: 0.005em;
+}
+.live-view-arrow {
+  font-family: 'Instrument Serif', serif;
+  font-style: italic;
+  font-size: 32px;
+  color: var(--gold);
+  transition: transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+  flex-shrink: 0;
+  line-height: 1;
+  padding-right: 4px;
+}
+.live-view:hover .live-view-arrow {
+  transform: translateX(6px);
+}
+@media (max-width: 480px) {
+  .live-view {
+    padding: 1rem 1.1rem 1.05rem;
+    gap: 1rem;
+    margin: 1.5rem 0 2rem;
+  }
+  .live-view-title { font-size: 21px; }
+  .live-view-arrow { font-size: 26px; }
+  .live-view-meta { font-size: 12px; }
+  .live-view-eyebrow { font-size: 9.5px; letter-spacing: 0.22em; }
+}
 </style>
 </head>
 <body>
@@ -941,6 +1032,15 @@ footer .source {
     <div class="section-label">Section I</div>
     <h2 class="section-title">Our <em>local</em> sky</h2>
     <p class="section-intro">A tour of the eight planets orbiting our Sun. Tap any world to learn its story.</p>
+
+    <a class="live-view" href="solar-system.html">
+      <div class="live-view-body">
+        <div class="live-view-eyebrow">— Interactive · 3D —</div>
+        <div class="live-view-title">Step into the <em>orrery</em></div>
+        <div class="live-view-meta">A live, photorealistic view — real textures, moons, Saturn's rings, orbital motion.</div>
+      </div>
+      <div class="live-view-arrow">→</div>
+    </a>
 
     <div class="solar-system" id="solarSystem"></div>
     <div class="system-hint">— tap a planet —</div>
