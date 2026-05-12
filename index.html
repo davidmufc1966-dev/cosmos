@@ -764,6 +764,14 @@ body {
   text-transform: uppercase;
   color: var(--ink-mute);
 }
+.compare-planet .size-note {
+  font-family: 'Instrument Serif', serif;
+  font-style: italic;
+  font-size: 0.7rem;
+  color: var(--ink-dim);
+  margin-top: 0.25rem;
+  letter-spacing: 0.01em;
+}
 
 /* ─── Footer ─── */
 footer {
@@ -1518,8 +1526,23 @@ function selectExo(i) {
   const detail = document.getElementById('exoDetail');
   detail.classList.add('active');
 
-  const earthSize = 80;
-  const exoSize = Math.max(28, Math.min(280, earthSize * e.radiusEarth));
+  // Dynamic size comparison:
+  //  - For ratios ≤ 5×, Earth stays at 60px so it's comfortably visible
+  //  - Above that, the exoplanet caps at 300px and Earth shrinks to keep
+  //    the ratio truthful, down to a 6px minimum
+  //  - If the true ratio exceeds 50× (i.e. impossible — Earth would be sub-pixel),
+  //    Earth stays at 6px and we annotate the visual as "scaled"
+  const ratio = Math.max(0.1, e.radiusEarth || 1);
+  const MAX_EXO = 300, MIN_EARTH = 6, BASE_EARTH = 60;
+  let earthSize, exoSize;
+  if (ratio <= 1) {
+    earthSize = BASE_EARTH;
+    exoSize = Math.max(20, BASE_EARTH * ratio);
+  } else {
+    exoSize = Math.min(MAX_EXO, BASE_EARTH * ratio);
+    earthSize = Math.max(MIN_EARTH, exoSize / ratio);
+  }
+  const sizeClamped = ratio > MAX_EXO / MIN_EARTH;
 
   detail.innerHTML = `
     <h3>${e.name}</h3>
@@ -1544,6 +1567,7 @@ function selectExo(i) {
             <div class="planet-zoom-btn" onclick="openFullscreen(this.previousElementSibling, '${e.name.replace(/'/g, "\\'")}')">⛶</div>
           </div>
           <div class="name">${e.name.split(' ')[0]}</div>
+          ${sizeClamped ? `<div class="size-note">scaled · actual ${ratio.toFixed(1)}× Earth</div>` : ''}
         </div>
       </div>
     </div>
@@ -1751,8 +1775,18 @@ function selectCatPlanet(idx) {
   detail.classList.add('active');
   const fall = TYPE_FALLBACKS[p.t];
   const compareStyle = planetVisualStyle(p.n, p.t, fall);
-  const earthSize = 80;
-  const exoSize = Math.max(28, Math.min(280, earthSize * (p.r || 1)));
+  // Dynamic size comparison (same logic as featured exoplanet)
+  const ratio = Math.max(0.1, p.r || 1);
+  const MAX_EXO = 300, MIN_EARTH = 6, BASE_EARTH = 60;
+  let earthSize, exoSize;
+  if (ratio <= 1) {
+    earthSize = BASE_EARTH;
+    exoSize = Math.max(20, BASE_EARTH * ratio);
+  } else {
+    exoSize = Math.min(MAX_EXO, BASE_EARTH * ratio);
+    earthSize = Math.max(MIN_EARTH, exoSize / ratio);
+  }
+  const sizeClamped = ratio > MAX_EXO / MIN_EARTH;
 
   const fmt = (v, unit) => v != null ? `${v} ${unit}` : '—';
   const periodTxt = p.p != null
@@ -1787,6 +1821,7 @@ function selectCatPlanet(idx) {
             <div class="planet-zoom-btn" onclick="openFullscreen(this.previousElementSibling, '${p.n.replace(/'/g, "\\'")}')">⛶</div>
           </div>
           <div class="name">${p.n.split(' ')[0]}</div>
+          ${sizeClamped ? `<div class="size-note">scaled · actual ${ratio.toFixed(1)}× Earth</div>` : ''}
         </div>
       </div>
     </div>` : ''}
