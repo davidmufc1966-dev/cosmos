@@ -2782,4 +2782,43 @@ function selectCatPlanet(idx) {
 let searchTimer = null;
 document.getElementById('catSearch').addEventListener('input', (e) => {
   catState.search = e.target.value;
-  cl
+  clearTimeout(searchTimer);
+  searchTimer = setTimeout(applyCatFilters, 200);
+});
+
+document.getElementById('catFilters').addEventListener('click', (e) => {
+  const chip = e.target.closest('.cat-chip');
+  if (!chip) return;
+  document.querySelectorAll('.cat-chip').forEach(c => c.classList.remove('active'));
+  chip.classList.add('active');
+  catState.type = chip.dataset.type;
+  applyCatFilters();
+});
+
+document.getElementById('catSort').addEventListener('change', (e) => {
+  catState.sort = e.target.value;
+  applyCatFilters();
+});
+
+document.getElementById('catLoadMore').addEventListener('click', () => {
+  catState.page++;
+  renderCatPage();
+});
+
+/* ─── Fullscreen planet view ─── */
+function openFullscreen(ball, name) {
+  const fs = document.getElementById('planetFullscreen');
+  const pfBall = document.getElementById('pfBall');
+  pfBall.style.cssText = ball.getAttribute('style');
+  // Override size to fullscreen dimensions
+  pfBall.style.width = '';
+  pfBall.style.height = '';
+  document.getElementById('pfName').textContent = name;
+  fs.classList.add('active');
+}
+document.getElementById('planetFullscreen').addEventListener('click', function() {
+  this.classList.remove('active');
+});
+</script>
+</body>
+</html>
