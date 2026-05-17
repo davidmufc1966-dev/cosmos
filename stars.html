@@ -6,8 +6,8 @@
 <meta name="theme-color" content="#0a0d1a">
 
 <!-- Search (Google snippet) -->
-<title>Cosmos — Worlds: A Field Guide to the Solar System and Beyond</title>
-<meta name="description" content="Wander the solar system in 3D, then meet 50 of the most remarkable worlds beyond it, plus the hunt for alien moons.">
+<title>Cosmos — Stars: Types, Lives, and Pairings</title>
+<meta name="description" content="A guide to the eight kinds of stars, the three paths a star can take through its life, and the famous pairs that travel together.">
 
 <!-- Open Graph (Facebook, LinkedIn, Slack, Discord, iMessage, most chat apps) -->
 <meta property="og:type" content="website">
@@ -16,7 +16,7 @@
 <meta property="og:description" content="The solar system in 3D, fifty of the most remarkable exoplanets, and the live NASA catalogue of 6,200 worlds beyond our Sun.">
 <meta property="og:image" content="https://dashing-puppy-864e04.netlify.app/51pegb.jpg">
 <meta property="og:image:alt" content="51 Pegasi b — the first exoplanet ever found around a sun-like star.">
-<meta property="og:url" content="https://dashing-puppy-864e04.netlify.app/">
+<meta property="og:url" content="https://dashing-puppy-864e04.netlify.app/stars.html">
 
 <!-- Twitter Card (Twitter / X) -->
 <meta name="twitter:card" content="summary_large_image">
@@ -1699,67 +1699,337 @@ footer .source {
 <!-- Floating section nav: minimal vertical strip of 4 ticks on the right edge.
      Hidden until first scroll, fades in. Active tick fills based on viewport. -->
 <nav class="section-nav" id="sectionNav" aria-label="Section navigation">
-  <a href="#solar-system" data-section="solar-system" aria-label="Section I — Local Sky">
-    <span class="tick"></span><span class="label">Local Sky</span>
+  <a href="#star-types" data-section="star-types" aria-label="Section I — Kinds of Stars">
+    <span class="tick"></span><span class="label">Kinds of Stars</span>
   </a>
-  <a href="#exoplanets" data-section="exoplanets" aria-label="Section II — Beyond the Sun">
-    <span class="tick"></span><span class="label">Beyond the Sun</span>
+  <a href="#life-cycles" data-section="life-cycles" aria-label="Section II — Lives of Stars">
+    <span class="tick"></span><span class="label">Lives of Stars</span>
   </a>
-  <a href="#exomoons" data-section="exomoons" aria-label="Section III — Exomoons">
-    <span class="tick"></span><span class="label">Exomoons</span>
+  <a href="#binaries" data-section="binaries" aria-label="Section III — Star Pairs">
+    <span class="tick"></span><span class="label">Star Pairs</span>
   </a>
 </nav>
 
 <div class="container">
 
   <header class="masthead fade-in">
-    <div class="eyebrow">— Worlds —</div>
+    <div class="eyebrow">— Stars —</div>
     <h1>Cosmos<em>.</em></h1>
-    <p class="lede">Eight planets close to home, and a thousand worlds beyond.</p>
+    <p class="lede">Eight families of stars, three life-paths, and the pairs that travel together.</p>
   </header>
 
   <nav class="page-nav" aria-label="Site navigation">
-  <a href="index.html" class="active">Worlds</a>
-  <a href="stars.html">Stars</a>
+  <a href="index.html">Worlds</a>
+  <a href="stars.html" class="active">Stars</a>
   <a href="catalogue.html">Catalogue</a>
 </nav>
 
 
-  <section class="section fade-in delay-1" id="solar-system">
+  <section class="section fade-in delay-2" id="star-types">
     <div class="section-label">Section I</div>
-    <h2 class="section-title">Our <em>local</em> sky</h2>
-    <p class="section-intro">A tour of the eight planets orbiting our Sun. Tap any world to learn its story.</p>
+    <h2 class="section-title">The kinds of <em>stars</em></h2>
+    <p class="section-intro">Every world in this guide circles one. Stars come in a stunning range of sizes and temperatures — from failed sparks too small to ignite, to bloated giants larger than our entire inner solar system. Eight families, eight fates.</p>
 
-    <a class="live-view" href="solar-system.html">
-      <div class="live-view-body">
-        <div class="live-view-eyebrow">— Interactive · 3D —</div>
-        <div class="live-view-title">Step into the <em>orrery</em></div>
-        <div class="live-view-meta">A live, photorealistic view — real textures, moons, Saturn's rings, orbital motion.</div>
-      </div>
-      <div class="live-view-arrow">→</div>
-    </a>
+    <div class="star-grid">
+      <article class="star-card">
+        <div class="star-visual-wrap">
+          <div class="star-visual" style="width: 48px; height: 48px; box-shadow: 0 0 12px rgba(180, 90, 40, 0.18);"><svg viewBox="0 0 100 100" preserveAspectRatio="xMidYMid slice"><defs><radialGradient id="g-bd" cx="35%" cy="35%"><stop offset="0%" stop-color="#6b3a1a"/><stop offset="65%" stop-color="#3a1d08"/><stop offset="100%" stop-color="#1a0d04"/></radialGradient><filter id="t-bd"><feTurbulence type="fractalNoise" baseFrequency="0.5 0.04" numOctaves="2" seed="2"/><feColorMatrix values="0 0 0 0 0.45  0 0 0 0 0.18  0 0 0 0 0.05  0 0 0 0.6 0"/><feComposite in2="SourceGraphic" operator="in"/></filter></defs><circle cx="50" cy="50" r="50" fill="url(#g-bd)"/><circle cx="50" cy="50" r="50" filter="url(#t-bd)" opacity="0.7"/></svg></div>
+        </div>
+        <div class="star-body">
+          <div class="star-name-row">
+            <h4>Brown dwarf</h4>
+            <span class="star-class">Failed star</span>
+          </div>
+          <p class="star-desc">Too small to ignite hydrogen fusion. They glow faintly from leftover heat — the bridge between giant planets and true stars.</p>
+          <div class="star-examples"><span class="lbl">Examples</span>Luhman 16 · WISE 0855−0714 · Teide 1</div>
+        </div>
+      </article>
 
-    <div class="solar-system" id="solarSystem"></div>
-    <div class="system-hint">— tap a planet —</div>
+      <article class="star-card">
+        <div class="star-visual-wrap">
+          <div class="star-visual" style="width: 56px; height: 56px; box-shadow: 0 0 18px rgba(232, 90, 50, 0.35);"><svg viewBox="0 0 100 100" preserveAspectRatio="xMidYMid slice"><defs><radialGradient id="g-rd" cx="35%" cy="35%"><stop offset="0%" stop-color="#ff8a55"/><stop offset="55%" stop-color="#c8401c"/><stop offset="100%" stop-color="#6a1a0a"/></radialGradient><filter id="t-rd"><feTurbulence type="fractalNoise" baseFrequency="0.15" numOctaves="2" seed="4"/><feColorMatrix values="0 0 0 0 1  0 0 0 0 0.5  0 0 0 0 0.2  0 0 0 0.5 0"/><feComposite in2="SourceGraphic" operator="in"/></filter></defs><circle cx="50" cy="50" r="50" fill="url(#g-rd)"/><circle cx="50" cy="50" r="50" filter="url(#t-rd)" opacity="0.55"/></svg></div>
+        </div>
+        <div class="star-body">
+          <div class="star-name-row">
+            <h4>Red dwarf</h4>
+            <span class="star-class">M-type</span>
+          </div>
+          <p class="star-desc">The smallest, coolest true stars — and by far the most common in the galaxy. Burn so slowly they will outlive every other star by trillions of years.</p>
+          <div class="star-examples"><span class="lbl">Examples</span>Proxima Centauri · Barnard's Star · TRAPPIST-1</div>
+        </div>
+      </article>
 
-    <div class="detail-card" id="planetCard"></div>
+      <article class="star-card">
+        <div class="star-visual-wrap">
+          <div class="star-visual" style="width: 72px; height: 72px; box-shadow: 0 0 24px rgba(255, 181, 71, 0.45), 0 0 50px rgba(212, 99, 26, 0.18);"><svg viewBox="0 0 100 100" preserveAspectRatio="xMidYMid slice"><defs><radialGradient id="g-yd" cx="35%" cy="35%"><stop offset="0%" stop-color="#fff5d0"/><stop offset="40%" stop-color="#ffb547"/><stop offset="100%" stop-color="#d4631a"/></radialGradient><filter id="t-yd"><feTurbulence type="fractalNoise" baseFrequency="0.22" numOctaves="3" seed="7"/><feColorMatrix values="0 0 0 0 1  0 0 0 0 0.65  0 0 0 0 0.15  0 0 0 0.5 0"/><feComposite in2="SourceGraphic" operator="in"/></filter></defs><circle cx="50" cy="50" r="50" fill="url(#g-yd)"/><circle cx="50" cy="50" r="50" filter="url(#t-yd)" opacity="0.5"/></svg></div>
+        </div>
+        <div class="star-body">
+          <div class="star-name-row">
+            <h4>Yellow dwarf</h4>
+            <span class="star-class">G-type · like the Sun</span>
+          </div>
+          <p class="star-desc">Steady, middle-aged main-sequence stars. Warm enough for liquid water, long-lived enough for biology to take hold. Our home star is one.</p>
+          <div class="star-examples"><span class="lbl">Examples</span>The Sun · Alpha Centauri A · Tau Ceti</div>
+        </div>
+      </article>
+
+      <article class="star-card">
+        <div class="star-visual-wrap">
+          <div class="star-visual" style="width: 84px; height: 84px; box-shadow: 0 0 28px rgba(138, 184, 255, 0.45), 0 0 60px rgba(40, 88, 176, 0.25);"><svg viewBox="0 0 100 100" preserveAspectRatio="xMidYMid slice"><defs><radialGradient id="g-bg" cx="35%" cy="35%"><stop offset="0%" stop-color="#f0f5ff"/><stop offset="45%" stop-color="#8ab8ff"/><stop offset="100%" stop-color="#2858b0"/></radialGradient><filter id="t-bg"><feTurbulence type="fractalNoise" baseFrequency="0.12" numOctaves="2" seed="9"/><feColorMatrix values="0 0 0 0 0.9  0 0 0 0 0.95  0 0 0 0 1  0 0 0 0.4 0"/><feComposite in2="SourceGraphic" operator="in"/></filter></defs><circle cx="50" cy="50" r="50" fill="url(#g-bg)"/><circle cx="50" cy="50" r="50" filter="url(#t-bg)" opacity="0.35"/></svg></div>
+        </div>
+        <div class="star-body">
+          <div class="star-name-row">
+            <h4>Blue giant</h4>
+            <span class="star-class">O / B-type</span>
+          </div>
+          <p class="star-desc">Massive, scorchingly hot, and short-lived. Burn through their fuel in a few million years, then end as supernovae. The brightest stars in the night sky.</p>
+          <div class="star-examples"><span class="lbl">Examples</span>Rigel · Bellatrix · Spica</div>
+        </div>
+      </article>
+
+      <article class="star-card">
+        <div class="star-visual-wrap">
+          <div class="star-visual" style="width: 96px; height: 96px; box-shadow: 0 0 26px rgba(208, 64, 32, 0.4), 0 0 60px rgba(128, 32, 16, 0.2);"><svg viewBox="0 0 100 100" preserveAspectRatio="xMidYMid slice"><defs><radialGradient id="g-rg" cx="35%" cy="35%"><stop offset="0%" stop-color="#ffb080"/><stop offset="55%" stop-color="#d04020"/><stop offset="100%" stop-color="#802010"/></radialGradient><filter id="t-rg"><feTurbulence type="fractalNoise" baseFrequency="0.06" numOctaves="3" seed="11"/><feColorMatrix values="0 0 0 0 1  0 0 0 0 0.45  0 0 0 0 0.15  0 0 0 0.6 0"/><feComposite in2="SourceGraphic" operator="in"/></filter></defs><circle cx="50" cy="50" r="50" fill="url(#g-rg)"/><circle cx="50" cy="50" r="50" filter="url(#t-rg)" opacity="0.6"/></svg></div>
+        </div>
+        <div class="star-body">
+          <div class="star-name-row">
+            <h4>Red giant</h4>
+            <span class="star-class">Late-life Sun-like</span>
+          </div>
+          <p class="star-desc">What a star like our Sun becomes near the end. The core exhausts its hydrogen, the outer layers swell to a hundred times wider, and the surface cools to a deep orange-red.</p>
+          <div class="star-examples"><span class="lbl">Examples</span>Aldebaran · Arcturus · Pollux</div>
+        </div>
+      </article>
+
+      <article class="star-card">
+        <div class="star-visual-wrap">
+          <div class="star-visual" style="width: 104px; height: 104px; box-shadow: 0 0 32px rgba(200, 48, 32, 0.5), 0 0 70px rgba(80, 16, 8, 0.3);"><svg viewBox="0 0 100 100" preserveAspectRatio="xMidYMid slice"><defs><radialGradient id="g-sg" cx="35%" cy="35%"><stop offset="0%" stop-color="#ffaa80"/><stop offset="50%" stop-color="#c83020"/><stop offset="100%" stop-color="#501008"/></radialGradient><filter id="t-sg"><feTurbulence type="fractalNoise" baseFrequency="0.035" numOctaves="3" seed="13"/><feColorMatrix values="0 0 0 0 1  0 0 0 0 0.35  0 0 0 0 0.1  0 0 0 0.7 0"/><feComposite in2="SourceGraphic" operator="in"/></filter></defs><circle cx="50" cy="50" r="50" fill="url(#g-sg)"/><circle cx="50" cy="50" r="50" filter="url(#t-sg)" opacity="0.7"/></svg></div>
+        </div>
+        <div class="star-body">
+          <div class="star-name-row">
+            <h4>Supergiant</h4>
+            <span class="star-class">Doomed colossus</span>
+          </div>
+          <p class="star-desc">The death throes of truly massive stars. Some grow so large they would swallow Jupiter's orbit if placed where the Sun is. All are destined to explode.</p>
+          <div class="star-examples"><span class="lbl">Examples</span>Betelgeuse · Antares · VY Canis Majoris</div>
+        </div>
+      </article>
+
+      <article class="star-card">
+        <div class="star-visual-wrap">
+          <div class="star-visual" style="width: 26px; height: 26px; box-shadow: 0 0 16px rgba(216, 232, 255, 0.7), 0 0 36px rgba(128, 168, 224, 0.35);"><svg viewBox="0 0 100 100" preserveAspectRatio="xMidYMid slice"><defs><radialGradient id="g-wd" cx="35%" cy="35%"><stop offset="0%" stop-color="#ffffff"/><stop offset="60%" stop-color="#d8e8ff"/><stop offset="100%" stop-color="#80a8e0"/></radialGradient></defs><circle cx="50" cy="50" r="50" fill="url(#g-wd)"/></svg></div>
+        </div>
+        <div class="star-body">
+          <div class="star-name-row">
+            <h4>White dwarf</h4>
+            <span class="star-class">Stellar ember</span>
+          </div>
+          <p class="star-desc">What's left after a red giant sheds its outer layers — an Earth-sized core, still glowing white-hot from residual heat, with no fusion left to power it. Cools for billions of years.</p>
+          <div class="star-examples"><span class="lbl">Examples</span>Sirius B · Procyon B · Van Maanen's Star</div>
+        </div>
+      </article>
+
+      <article class="star-card">
+        <div class="star-visual-wrap">
+          <div class="star-visual" style="width: 10px; height: 10px; box-shadow: 0 0 14px rgba(255, 255, 255, 0.85), 0 0 32px rgba(64, 128, 208, 0.55), 0 0 60px rgba(64, 128, 208, 0.25);"><svg viewBox="0 0 100 100" preserveAspectRatio="xMidYMid slice"><defs><radialGradient id="g-ns" cx="35%" cy="35%"><stop offset="0%" stop-color="#ffffff"/><stop offset="50%" stop-color="#b8d4ff"/><stop offset="100%" stop-color="#4080d0"/></radialGradient></defs><circle cx="50" cy="50" r="50" fill="url(#g-ns)"/></svg></div>
+        </div>
+        <div class="star-body">
+          <div class="star-name-row">
+            <h4>Neutron star</h4>
+            <span class="star-class">Supernova remnant</span>
+          </div>
+          <p class="star-desc">The crushed core left after a massive star explodes. A teaspoon of one would weigh a billion tonnes. Many spin hundreds of times per second, sweeping radio beams across the galaxy.</p>
+          <div class="star-examples"><span class="lbl">Examples</span>PSR B1919+21 · the Crab Pulsar · the Vela Pulsar</div>
+        </div>
+      </article>
+    </div>
   </section>
 
-  <section class="section fade-in delay-2" id="exoplanets">
+  <section class="section fade-in delay-2" id="life-cycles">
     <div class="section-label">Section II</div>
-    <h2 class="section-title">Beyond <em>the Sun</em></h2>
-    <p class="section-intro">Since 1992, astronomers have catalogued more than 6,200 worlds orbiting other stars. Here are fifty of the most remarkable.</p>
+    <h2 class="section-title">The lives of <em>stars</em></h2>
+    <p class="section-intro">A star's fate is written at birth. The mass it forms with determines everything — how brightly it burns, how long it lives, and what it leaves behind. Three paths, three endings.</p>
 
-    <div class="exo-grid" id="exoGrid"></div>
-    <div class="exo-detail" id="exoDetail"></div>
+    <div class="life-paths">
+
+      <article class="life-path">
+        <div class="path-label">Small · less than 0.5 solar masses</div>
+        <div class="path-stages">
+
+          <div class="path-stage">
+            <div class="path-stage-visual">
+              <div class="star-visual" style="width:42px;height:42px;box-shadow:0 0 14px rgba(232, 90, 50, 0.35);"><svg viewBox="0 0 100 100" preserveAspectRatio="xMidYMid slice"><defs><radialGradient id="lc-rd" cx="35%" cy="35%"><stop offset="0%" stop-color="#ff8a55"/><stop offset="55%" stop-color="#c8401c"/><stop offset="100%" stop-color="#6a1a0a"/></radialGradient></defs><circle cx="50" cy="50" r="50" fill="url(#lc-rd)"/></svg></div>
+            </div>
+            <div class="path-stage-name">Red dwarf</div>
+            <div class="path-stage-time">today</div>
+          </div>
+
+          <div class="path-arrow"></div>
+
+          <div class="path-stage">
+            <div class="path-stage-visual">
+              <div class="star-visual" style="width:18px;height:18px;box-shadow:0 0 12px rgba(216, 232, 255, 0.7);"><svg viewBox="0 0 100 100" preserveAspectRatio="xMidYMid slice"><defs><radialGradient id="lc-wd1" cx="35%" cy="35%"><stop offset="0%" stop-color="#ffffff"/><stop offset="60%" stop-color="#d8e8ff"/><stop offset="100%" stop-color="#80a8e0"/></radialGradient></defs><circle cx="50" cy="50" r="50" fill="url(#lc-wd1)"/></svg></div>
+            </div>
+            <div class="path-stage-name">White dwarf</div>
+            <div class="path-stage-time">trillions of years</div>
+          </div>
+
+        </div>
+        <p class="path-note">Red dwarfs burn so slowly that no red dwarf has ever finished its life — the universe simply isn't old enough. They will be the last stars left, glowing dimly long after every other star has gone dark.</p>
+      </article>
+
+      <article class="life-path">
+        <div class="path-label">Sun-like · 0.5 to 8 solar masses</div>
+        <div class="path-stages">
+
+          <div class="path-stage">
+            <div class="path-stage-visual">
+              <div class="star-visual" style="width:48px;height:48px;box-shadow:0 0 18px rgba(255, 181, 71, 0.45);"><svg viewBox="0 0 100 100" preserveAspectRatio="xMidYMid slice"><defs><radialGradient id="lc-yd" cx="35%" cy="35%"><stop offset="0%" stop-color="#fff5d0"/><stop offset="40%" stop-color="#ffb547"/><stop offset="100%" stop-color="#d4631a"/></radialGradient></defs><circle cx="50" cy="50" r="50" fill="url(#lc-yd)"/></svg></div>
+            </div>
+            <div class="path-stage-name">Yellow dwarf</div>
+            <div class="path-stage-time">~10 billion yrs</div>
+          </div>
+
+          <div class="path-arrow"></div>
+
+          <div class="path-stage">
+            <div class="path-stage-visual">
+              <div class="star-visual" style="width:64px;height:64px;box-shadow:0 0 22px rgba(208, 64, 32, 0.4);"><svg viewBox="0 0 100 100" preserveAspectRatio="xMidYMid slice"><defs><radialGradient id="lc-rg" cx="35%" cy="35%"><stop offset="0%" stop-color="#ffb080"/><stop offset="55%" stop-color="#d04020"/><stop offset="100%" stop-color="#802010"/></radialGradient></defs><circle cx="50" cy="50" r="50" fill="url(#lc-rg)"/></svg></div>
+            </div>
+            <div class="path-stage-name">Red giant</div>
+            <div class="path-stage-time">~1 billion yrs</div>
+          </div>
+
+          <div class="path-event">planetary nebula</div>
+
+          <div class="path-stage">
+            <div class="path-stage-visual">
+              <div class="star-visual" style="width:18px;height:18px;box-shadow:0 0 12px rgba(216, 232, 255, 0.7);"><svg viewBox="0 0 100 100" preserveAspectRatio="xMidYMid slice"><defs><radialGradient id="lc-wd2" cx="35%" cy="35%"><stop offset="0%" stop-color="#ffffff"/><stop offset="60%" stop-color="#d8e8ff"/><stop offset="100%" stop-color="#80a8e0"/></radialGradient></defs><circle cx="50" cy="50" r="50" fill="url(#lc-wd2)"/></svg></div>
+            </div>
+            <div class="path-stage-name">White dwarf</div>
+            <div class="path-stage-time">cools forever</div>
+          </div>
+
+        </div>
+        <p class="path-note">The Sun's path. In about five billion years it will exhaust the hydrogen in its core, swell into a red giant large enough to engulf Mercury and Venus, then puff away its outer layers as a glowing planetary nebula. What remains is a slowly cooling white dwarf about the size of Earth.</p>
+      </article>
+
+      <article class="life-path">
+        <div class="path-label">Massive · more than 8 solar masses</div>
+        <div class="path-stages">
+
+          <div class="path-stage">
+            <div class="path-stage-visual">
+              <div class="star-visual" style="width:56px;height:56px;box-shadow:0 0 22px rgba(138, 184, 255, 0.45);"><svg viewBox="0 0 100 100" preserveAspectRatio="xMidYMid slice"><defs><radialGradient id="lc-bg" cx="35%" cy="35%"><stop offset="0%" stop-color="#f0f5ff"/><stop offset="45%" stop-color="#8ab8ff"/><stop offset="100%" stop-color="#2858b0"/></radialGradient></defs><circle cx="50" cy="50" r="50" fill="url(#lc-bg)"/></svg></div>
+            </div>
+            <div class="path-stage-name">Blue giant</div>
+            <div class="path-stage-time">~10 million yrs</div>
+          </div>
+
+          <div class="path-arrow"></div>
+
+          <div class="path-stage">
+            <div class="path-stage-visual">
+              <div class="star-visual" style="width:70px;height:70px;box-shadow:0 0 24px rgba(200, 48, 32, 0.5);"><svg viewBox="0 0 100 100" preserveAspectRatio="xMidYMid slice"><defs><radialGradient id="lc-sg" cx="35%" cy="35%"><stop offset="0%" stop-color="#ffaa80"/><stop offset="50%" stop-color="#c83020"/><stop offset="100%" stop-color="#501008"/></radialGradient></defs><circle cx="50" cy="50" r="50" fill="url(#lc-sg)"/></svg></div>
+            </div>
+            <div class="path-stage-name">Red supergiant</div>
+            <div class="path-stage-time">~100,000 yrs</div>
+          </div>
+
+          <div class="path-event">supernova</div>
+
+          <div class="path-stage path-stage--fork">
+            <div class="path-stage-visual">
+              <div class="stage-fork">
+                <div class="star-visual" style="width:10px;height:10px;box-shadow:0 0 10px rgba(255, 255, 255, 0.85), 0 0 22px rgba(64, 128, 208, 0.5);"><svg viewBox="0 0 100 100" preserveAspectRatio="xMidYMid slice"><defs><radialGradient id="lc-ns" cx="35%" cy="35%"><stop offset="0%" stop-color="#ffffff"/><stop offset="50%" stop-color="#b8d4ff"/><stop offset="100%" stop-color="#4080d0"/></radialGradient></defs><circle cx="50" cy="50" r="50" fill="url(#lc-ns)"/></svg></div>
+                <span class="fork-or">or</span>
+                <div class="star-visual" style="width:32px;height:32px;box-shadow:0 0 16px rgba(255, 140, 60, 0.5), 0 0 36px rgba(180, 60, 20, 0.25);"><svg viewBox="0 0 100 100" preserveAspectRatio="xMidYMid slice"><defs><radialGradient id="lc-bh" cx="50%" cy="50%"><stop offset="0%" stop-color="#000000"/><stop offset="55%" stop-color="#000000"/><stop offset="62%" stop-color="#ff7030"/><stop offset="72%" stop-color="#ffaa50"/><stop offset="85%" stop-color="#ff5020"/><stop offset="100%" stop-color="#200800"/></radialGradient></defs><circle cx="50" cy="50" r="50" fill="url(#lc-bh)"/></svg></div>
+              </div>
+            </div>
+            <div class="path-stage-name">Neutron star · Black hole</div>
+            <div class="path-stage-time">forever</div>
+          </div>
+
+        </div>
+        <p class="path-note">Massive stars live fast and end violently. Their cores grow heavy with iron until gravity overwhelms the outward pressure of fusion. The star collapses in less than a second, and the rebound detonates a supernova bright enough to briefly outshine an entire galaxy. The crushed core is left behind: a neutron star, or — if heavy enough — a black hole.</p>
+      </article>
+
+    </div>
   </section>
 
-  <section class="section fade-in delay-3" id="exomoons">
+  <section class="section fade-in delay-2" id="binaries">
     <div class="section-label">Section III</div>
-    <h2 class="section-title">The hunt for <em>exomoons</em></h2>
-    <p class="section-intro">Six thousand worlds beyond our Sun, but not a single confirmed moon — the strangest gap in the catalogue. Every gas giant we know intimately is wreathed in dozens of them. The first exomoon is coming. Here are the candidates we are watching closest.</p>
+    <h2 class="section-title">Stars that travel <em>together</em></h2>
+    <p class="section-intro">Despite the lonely impression our Sun gives, most stars in the galaxy are not solitary. They form pairs, triples, even sextuples — locked together by gravity, circling one another for billions of years. A small sampling of the most famous.</p>
 
-    <div class="moon-grid" id="moonGrid"></div>
+    <div class="binary-grid">
+
+      <article class="binary-card">
+        <div class="binary-visual">
+          <svg class="binary-orbit" viewBox="0 0 300 130" preserveAspectRatio="none"><ellipse cx="120" cy="65" rx="55" ry="22" fill="none" stroke="rgba(212,165,116,0.16)" stroke-width="0.6" stroke-dasharray="2 3"/><ellipse cx="155" cy="65" rx="135" ry="50" fill="none" stroke="rgba(212,165,116,0.08)" stroke-width="0.6" stroke-dasharray="2 4"/></svg>
+          <div class="star-visual" style="width:28px;height:28px;left:31%;background:radial-gradient(circle at 35% 35%, #fff5d0, #ffb547 40%, #d4631a 95%);box-shadow:0 0 16px rgba(255,181,71,0.5);"></div>
+          <div class="star-visual" style="width:22px;height:22px;left:50%;background:radial-gradient(circle at 35% 35%, #ffd0a0, #ff8040 50%, #a04020 95%);box-shadow:0 0 12px rgba(255,140,60,0.45);"></div>
+          <div class="star-visual" style="width:9px;height:9px;left:90%;background:radial-gradient(circle at 35% 35%, #ff8a55, #c8401c 55%, #6a1a0a 95%);box-shadow:0 0 8px rgba(232,90,50,0.5);"></div>
+        </div>
+        <div class="binary-body">
+          <div class="binary-name-row">
+            <h4>Alpha Centauri</h4>
+            <span class="binary-type">Triple system</span>
+          </div>
+          <p class="binary-desc">The closest stellar system to our own. Two Sun-like stars (A and B) orbit each other every 80 years, while a faint red dwarf — Proxima Centauri — circles them both from much farther out. Proxima hosts at least one Earth-sized planet in its habitable zone.</p>
+          <div class="binary-stats">4.37 light-years · 3 stars · A: G2V · B: K1V · Proxima: M5.5V</div>
+        </div>
+      </article>
+
+      <article class="binary-card">
+        <div class="binary-visual">
+          <svg class="binary-orbit" viewBox="0 0 300 130" preserveAspectRatio="none"><ellipse cx="155" cy="65" rx="100" ry="32" fill="none" stroke="rgba(212,165,116,0.16)" stroke-width="0.6" stroke-dasharray="2 3"/></svg>
+          <div class="star-visual" style="width:38px;height:38px;left:25%;background:radial-gradient(circle at 35% 35%, #f0f5ff, #b0c8ff 50%, #4070d0 95%);box-shadow:0 0 22px rgba(176,200,255,0.55), 0 0 48px rgba(64,112,208,0.2);"></div>
+          <div class="star-visual" style="width:8px;height:8px;left:78%;background:radial-gradient(circle at 35% 35%, #ffffff, #d8e8ff 60%, #80a8e0 95%);box-shadow:0 0 12px rgba(216,232,255,0.85), 0 0 24px rgba(128,168,224,0.3);"></div>
+        </div>
+        <div class="binary-body">
+          <div class="binary-name-row">
+            <h4>Sirius A &amp; B</h4>
+            <span class="binary-type">Visual binary</span>
+          </div>
+          <p class="binary-desc">The brightest star in our night sky travels with a hidden companion: a white dwarf the size of Earth but heavier than the Sun. Sirius A is twice as massive and twenty-five times brighter than our Sun; Sirius B is a stellar corpse, drained of fuel, slowly cooling forever.</p>
+          <div class="binary-stats">8.6 light-years · 50-year orbit · A: A1V · B: DA2 white dwarf</div>
+        </div>
+      </article>
+
+      <article class="binary-card">
+        <div class="binary-visual">
+          <svg class="binary-orbit" viewBox="0 0 300 130" preserveAspectRatio="none"><line x1="60" y1="65" x2="240" y2="65" stroke="rgba(212,165,116,0.14)" stroke-width="0.6" stroke-dasharray="2 4"/><polyline points="100,55 110,55 110,75 120,75" fill="none" stroke="rgba(212,165,116,0.3)" stroke-width="0.6"/></svg>
+          <div class="star-visual" style="width:34px;height:34px;left:42%;background:radial-gradient(circle at 35% 35%, #f0f5ff, #a8c8ff 45%, #4070d0 95%);box-shadow:0 0 20px rgba(168,200,255,0.55);"></div>
+          <div class="star-visual" style="width:26px;height:26px;left:54%;background:radial-gradient(circle at 35% 35%, #ffd0a0, #ff7030 50%, #803010 95%);box-shadow:0 0 14px rgba(255,112,48,0.4);z-index:3;"></div>
+        </div>
+        <div class="binary-body">
+          <div class="binary-name-row">
+            <h4>Algol</h4>
+            <span class="binary-type">Eclipsing binary</span>
+          </div>
+          <p class="binary-desc">Known to medieval astronomers as the "demon star" because it visibly winks. Every 2.87 days, the dimmer orange companion passes in front of the brighter blue star, dropping the system's brightness for ten hours. You can see the dip with the naked eye if you know when to look.</p>
+          <div class="binary-stats">93 light-years · 2.87-day orbit · A: B8V · B: K0IV subgiant</div>
+        </div>
+      </article>
+
+      <article class="binary-card">
+        <div class="binary-visual">
+          <div class="binary-flow" style="left:32%;width:46%;"></div>
+          <div class="star-visual" style="width:44px;height:44px;left:22%;background:radial-gradient(circle at 35% 35%, #f0f5ff, #90b8ff 45%, #3060c0 95%);box-shadow:0 0 26px rgba(144,184,255,0.55), 0 0 56px rgba(48,96,192,0.25);"></div>
+          <div class="star-visual" style="width:24px;height:24px;left:78%;background:radial-gradient(circle at 50% 50%, #000000 50%, #ff7030 60%, #ff5020 78%, transparent 96%);box-shadow:0 0 16px rgba(255,140,60,0.6), 0 0 36px rgba(180,60,20,0.3);"></div>
+        </div>
+        <div class="binary-body">
+          <div class="binary-name-row">
+            <h4>Cygnus X-1</h4>
+            <span class="binary-type">X-ray binary</span>
+          </div>
+          <p class="binary-desc">A blue supergiant in a death spiral with a black hole twenty-one times the Sun's mass. The black hole strips gas from its companion, and that gas spirals inward, heated to millions of degrees as it falls — emitting the X-rays that gave away the system in 1964. The first black hole ever identified.</p>
+          <div class="binary-stats">7,200 light-years · 5.6-day orbit · Star: O9.7Iab · Companion: 21 M☉ black hole</div>
+        </div>
+      </article>
+
+    </div>
   </section>
 
   <div class="planet-fullscreen" id="planetFullscreen">

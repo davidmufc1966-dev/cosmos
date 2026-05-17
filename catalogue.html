@@ -6,8 +6,8 @@
 <meta name="theme-color" content="#0a0d1a">
 
 <!-- Search (Google snippet) -->
-<title>Cosmos — Worlds: A Field Guide to the Solar System and Beyond</title>
-<meta name="description" content="Wander the solar system in 3D, then meet 50 of the most remarkable worlds beyond it, plus the hunt for alien moons.">
+<title>Cosmos — The Catalogue of Every Known Exoplanet</title>
+<meta name="description" content="The full record of every confirmed exoplanet, drawn live from NASA's Exoplanet Archive and classified by physical type.">
 
 <!-- Open Graph (Facebook, LinkedIn, Slack, Discord, iMessage, most chat apps) -->
 <meta property="og:type" content="website">
@@ -16,7 +16,7 @@
 <meta property="og:description" content="The solar system in 3D, fifty of the most remarkable exoplanets, and the live NASA catalogue of 6,200 worlds beyond our Sun.">
 <meta property="og:image" content="https://dashing-puppy-864e04.netlify.app/51pegb.jpg">
 <meta property="og:image:alt" content="51 Pegasi b — the first exoplanet ever found around a sun-like star.">
-<meta property="og:url" content="https://dashing-puppy-864e04.netlify.app/">
+<meta property="og:url" content="https://dashing-puppy-864e04.netlify.app/catalogue.html">
 
 <!-- Twitter Card (Twitter / X) -->
 <meta name="twitter:card" content="summary_large_image">
@@ -1699,67 +1699,70 @@ footer .source {
 <!-- Floating section nav: minimal vertical strip of 4 ticks on the right edge.
      Hidden until first scroll, fades in. Active tick fills based on viewport. -->
 <nav class="section-nav" id="sectionNav" aria-label="Section navigation">
-  <a href="#solar-system" data-section="solar-system" aria-label="Section I — Local Sky">
-    <span class="tick"></span><span class="label">Local Sky</span>
-  </a>
-  <a href="#exoplanets" data-section="exoplanets" aria-label="Section II — Beyond the Sun">
-    <span class="tick"></span><span class="label">Beyond the Sun</span>
-  </a>
-  <a href="#exomoons" data-section="exomoons" aria-label="Section III — Exomoons">
-    <span class="tick"></span><span class="label">Exomoons</span>
+  <a href="#catalogue" data-section="catalogue" aria-label="Section I — The Catalogue">
+    <span class="tick"></span><span class="label">The Catalogue</span>
   </a>
 </nav>
 
 <div class="container">
 
   <header class="masthead fade-in">
-    <div class="eyebrow">— Worlds —</div>
+    <div class="eyebrow">— Catalogue —</div>
     <h1>Cosmos<em>.</em></h1>
-    <p class="lede">Eight planets close to home, and a thousand worlds beyond.</p>
+    <p class="lede">Every confirmed world beyond our Sun. The full record, drawn live from NASA.</p>
   </header>
 
   <nav class="page-nav" aria-label="Site navigation">
-  <a href="index.html" class="active">Worlds</a>
+  <a href="index.html">Worlds</a>
   <a href="stars.html">Stars</a>
-  <a href="catalogue.html">Catalogue</a>
+  <a href="catalogue.html" class="active">Catalogue</a>
 </nav>
 
 
-  <section class="section fade-in delay-1" id="solar-system">
+  <section class="section fade-in delay-3" id="catalogue">
     <div class="section-label">Section I</div>
-    <h2 class="section-title">Our <em>local</em> sky</h2>
-    <p class="section-intro">A tour of the eight planets orbiting our Sun. Tap any world to learn its story.</p>
+    <h2 class="section-title">The <em>Catalogue</em></h2>
+    <p class="section-intro">The full record. Every confirmed world beyond our Sun, drawn live from NASA's Exoplanet Archive — classified by physical type, since most are still just numbers in a table.</p>
 
-    <a class="live-view" href="solar-system.html">
-      <div class="live-view-body">
-        <div class="live-view-eyebrow">— Interactive · 3D —</div>
-        <div class="live-view-title">Step into the <em>orrery</em></div>
-        <div class="live-view-meta">A live, photorealistic view — real textures, moons, Saturn's rings, orbital motion.</div>
-      </div>
-      <div class="live-view-arrow">→</div>
-    </a>
+    <div class="cat-intro-line">
+      <span class="cat-count"><span class="num" id="catCount">—</span> worlds shown</span>
+    </div>
 
-    <div class="solar-system" id="solarSystem"></div>
-    <div class="system-hint">— tap a planet —</div>
+    <div class="cat-search">
+      <input type="text" id="catSearch" placeholder="Search by name — e.g. Kepler, TRAPPIST, HD…" autocomplete="off">
+      <span class="cat-search-icon">⌕</span>
+    </div>
 
-    <div class="detail-card" id="planetCard"></div>
-  </section>
+    <div class="cat-filters" id="catFilters">
+      <div class="cat-chip active" data-type="all">All types</div>
+      <div class="cat-chip" data-type="1">Rocky</div>
+      <div class="cat-chip" data-type="2">Super-Earth</div>
+      <div class="cat-chip" data-type="3">Mini-Neptune</div>
+      <div class="cat-chip" data-type="4">Neptune</div>
+      <div class="cat-chip" data-type="5">Saturn</div>
+      <div class="cat-chip" data-type="6">Hot Jupiter</div>
+      <div class="cat-chip" data-type="7">Ultra-hot</div>
+      <div class="cat-chip" data-type="8">Cold gas giant</div>
+      <div class="cat-chip" data-type="0">Sub-Earth</div>
+    </div>
 
-  <section class="section fade-in delay-2" id="exoplanets">
-    <div class="section-label">Section II</div>
-    <h2 class="section-title">Beyond <em>the Sun</em></h2>
-    <p class="section-intro">Since 1992, astronomers have catalogued more than 6,200 worlds orbiting other stars. Here are fifty of the most remarkable.</p>
+    <div class="cat-sort-row">
+      <span>Sort by</span>
+      <select id="catSort">
+        <option value="year">Year discovered ↓</option>
+        <option value="year-asc">Year discovered ↑</option>
+        <option value="name">Name A–Z</option>
+        <option value="radius">Radius (smallest)</option>
+        <option value="radius-desc">Radius (largest)</option>
+        <option value="mass">Mass (lightest)</option>
+        <option value="mass-desc">Mass (heaviest)</option>
+      </select>
+    </div>
 
-    <div class="exo-grid" id="exoGrid"></div>
-    <div class="exo-detail" id="exoDetail"></div>
-  </section>
-
-  <section class="section fade-in delay-3" id="exomoons">
-    <div class="section-label">Section III</div>
-    <h2 class="section-title">The hunt for <em>exomoons</em></h2>
-    <p class="section-intro">Six thousand worlds beyond our Sun, but not a single confirmed moon — the strangest gap in the catalogue. Every gas giant we know intimately is wreathed in dozens of them. The first exomoon is coming. Here are the candidates we are watching closest.</p>
-
-    <div class="moon-grid" id="moonGrid"></div>
+    <div class="cat-loading" id="catLoading">Loading 6,286 worlds…</div>
+    <div class="cat-grid" id="catGrid"></div>
+    <button class="cat-load-more" id="catLoadMore" style="display:none">Load more</button>
+    <div class="exo-detail" id="catDetail"></div>
   </section>
 
   <div class="planet-fullscreen" id="planetFullscreen">
