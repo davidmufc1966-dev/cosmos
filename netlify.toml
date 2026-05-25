@@ -1,0 +1,10 @@
+# Proxy the NASA Exoplanet Archive TAP service through our own domain.
+# Browsers block the direct request because NASA's TAP endpoint doesn't send
+# permissive CORS headers; routing through Netlify makes it same-origin from
+# the browser's point of view.
+
+[[redirects]]
+  from = "/api/exoplanets"
+  to = "https://exoplanetarchive.ipac.caltech.edu/TAP/sync?query=select+pl_name,pl_rade,pl_bmasse,pl_orbper,hostname,disc_year,discoverymethod,st_spectype,sy_pnum,disc_facility,sy_dist+from+pscomppars&format=json"
+  status = 200
+  force = true

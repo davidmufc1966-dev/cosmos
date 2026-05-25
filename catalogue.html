@@ -2923,14 +2923,10 @@ const catObserver = new IntersectionObserver((entries) => {
 // NASA Exoplanet Archive TAP service — Planetary Systems Composite Parameters table.
 // Returns one row per confirmed exoplanet with cross-referenced "best" values from
 // multiple published papers.  https://exoplanetarchive.ipac.caltech.edu/docs/TAP/usingTAP.html
-const NASA_TAP_URL =
-  'https://exoplanetarchive.ipac.caltech.edu/TAP/sync?' +
-  'query=' + encodeURIComponent(
-    'select pl_name,pl_rade,pl_bmasse,pl_orbper,hostname,disc_year,' +
-    'discoverymethod,st_spectype,sy_pnum,disc_facility,sy_dist ' +
-    'from pscomppars'
-  ) +
-  '&format=json';
+//
+// We hit it via a Netlify redirect proxy (see netlify.toml) to avoid CORS issues
+// that NASA's TAP endpoint causes when called directly from the browser.
+const NASA_TAP_URL = '/api/exoplanets';
 
 // Classify by radius (Earth radii) into the same 9 type buckets used by the UI
 function classifyExoplanetType(r) {
@@ -2972,7 +2968,7 @@ function normalizeExoplanet(row) {
 }
 
 // Cache fetched data in localStorage for 24h so repeat visits are instant
-const CACHE_KEY = 'cosmos.catalogue.v2';
+const CACHE_KEY = 'cosmos.catalogue.v3';
 const CACHE_TTL_MS = 24 * 60 * 60 * 1000;
 
 function loadFromCache() {
